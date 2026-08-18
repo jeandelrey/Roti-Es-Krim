@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roti Es Krim | Perpaduan Roti Lembut & Es Krim Creamy</title>
+    
+    <!-- Google Fonts: Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFBF7',
+                        'cream-dark': '#F4EFE6',
+                        textDark: '#4A3B32',
+                        choco: '#795548',
+                        'choco-soft': '#A1887F',
+                        'choco-bg': '#EFEBE9',
+                        straw: '#F06292',
+                        'straw-soft': '#F8BBD0',
+                        'straw-bg': '#FCE4EC',
+                        vanila: '#FBC02D',
+                        'vanila-soft': '#FFF59D',
+                        'vanila-bg': '#FFFDE7',
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(74, 59, 50, 0.08)',
+                        'soft-lg': '0 20px 50px -10px rgba(74, 59, 50, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Preloader & Animations -->
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #4A3B32;
+        }
+
+        /* --- PRELOADER TEMA ROTI ES KRIM --- */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: 
+                radial-gradient(circle at top, rgba(248, 187, 208, 0.25), transparent 50%),
+                linear-gradient(135deg, #FDFBF7, #F4EFE6, #EFEBE9);
+            z-index: 99999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        #preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .glass-loader {
+            width: 430px;
+            max-width: 90%;
+            padding: 45px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(121, 85, 72, 0.15);
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(121, 85, 72, 0.12);
+        }
+
+        .loader-logo {
+            width: 90px;
+            margin: 0 auto 20px auto;
+            animation: bounceLogo 2.5s infinite ease-in-out;
+        }
+
+        @keyframes bounceLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .glass-loader h1 {
+            color: #4A3B32;
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .glass-loader h3 {
+            color: #795548;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .glass-loader p {
+            color: #8D6E63;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .progress {
+            width: 100%;
+            height: 8px;
+            background: rgba(121, 85, 72, 0.1);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .progress span {
+            display: block;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #795548, #F06292, #FBC02D);
+            animation: loadingBar 2.5s linear forwards;
+        }
+
+        @keyframes loadingBar {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        /* ---------------------------------- */
+
+        /* Floating Animation for Hero Image */
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Scroll Fade Up Animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D7CCC8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A1887F;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- PRELOADER SECTION -->
+    <div id="preloader">
+        <div class="glass-loader">
+            <!-- Logo SVG inside Preloader -->
+            <div class="loader-logo">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 55 C 15 20, 85 20, 85 55" fill="#D7CCC8"/>
+                    <circle cx="30" cy="55" r="16" fill="#795548"/>
+                    <circle cx="70" cy="55" r="16" fill="#FFF59D"/>
+                    <circle cx="50" cy="45" r="20" fill="#F8BBD0"/>
+                    <rect x="20" y="68" width="60" height="14" rx="7" fill="#D7CCC8"/>
+                </svg>
+            </div>
+            <h1>Roti Es Krim</h1>
+            <h3>Manis, Lembut, & Creamy</h3>
+            <p>Menyiapkan sajian lezat untuk Anda...</p>
+            <div class="progress">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-40 transition-all duration-300 bg-cream/90 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <svg width="45" height="45" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 55 C 15 20, 85 20, 85 55" fill="#D7CCC8"/>
+                        <circle cx="30" cy="55" r="16" fill="#795548"/>
+                        <circle cx="70" cy="55" r="16" fill="#FFF59D"/>
+                        <circle cx="50" cy="45" r="20" fill="#F8BBD0"/>
+                        <rect x="20" y="68" width="60" height="14" rx="7" fill="#D7CCC8"/>
+                    </svg>
+                    <span class="font-bold text-2xl tracking-tight text-textDark">Roti Es Krim</span>
+                </a>
+                <!-- Links (Desktop) -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#pengertian" class="text-textDark hover:text-choco font-semibold transition-colors">Pengertian</a>
+                    <a href="#varian" class="text-textDark hover:text-choco font-semibold transition-colors">Varian Rasa</a>
+                    <a href="#proses" class="text-textDark hover:text-choco font-semibold transition-colors">Proses</a>
+                    <a href="#keunggulan" class="text-textDark hover:text-choco font-semibold transition-colors">Keunggulan</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-textDark leading-tight mb-6">
+                        Perpaduan <br>
+                        <span class="text-choco">Roti Lembut</span> & <br>
+                        <span class="text-straw">Es Krim Creamy</span>
+                    </h1>
+                    <p class="text-lg lg:text-xl text-gray-600 mb-8 max-w-lg leading-relaxed">
+                        Inovasi makanan yang menggabungkan kelembutan roti tawar segar dengan sensasi dingin creamy dari es krim dalam pilihan rasa coklat, stroberi, dan vanila.
+                    </p>
+                    <a href="#pengertian" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-300 bg-choco rounded-full hover:bg-textDark hover:shadow-soft-lg hover:-translate-y-1">
+                        Pelajari Produk
+                    </a>
+                </div>
+                <div class="relative">
+                    <div class="relative w-full aspect-square max-w-md mx-auto floating">
+                        <div class="absolute inset-0 bg-cream-dark rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+                        <img src="logo roti es krim.jpeg" alt="Roti Es Krim" class="relative z-10 w-full h-full object-cover rounded-full shadow-soft-lg border-8 border-white">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Pengertian -->
+    <section id="pengertian" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 fade-up">
+                    <div class="bg-cream-dark rounded-[3rem] p-8 h-full shadow-soft flex items-center justify-center">
+                        <img src="roti es krim.jpeg" alt="Konsep Roti Es Krim" class="rounded-[2rem] shadow-sm">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 fade-up">
+                    <span class="text-choco font-bold tracking-wider uppercase text-sm">Tentang Produk</span>
+                    <h2 class="text-4xl font-extrabold mt-3 mb-6">Apa itu Roti Es Krim?</h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Roti Es Krim adalah konsep hidangan penutup premium yang menyatukan dua elemen favorit banyak orang. Menggunakan roti brioche khusus yang dipanggang hingga bagian luarnya renyah namun tetap sangat lembut di dalam, kemudian diisi dengan scoop es krim kualitas terbaik.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Kontras antara roti yang hangat dan es krim yang dingin menciptakan sensasi meleleh di mulut yang tak terlupakan. Produk ini dikembangkan untuk memberikan alternatif hidangan penutup yang mengenyangkan, dan unik.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Varian Rasa -->
+    <section id="varian" class="py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+                <h2 class="text-4xl font-extrabold mb-4">Tiga Varian Rasa Ikonik</h2>
+                <p class="text-gray-600 text-lg">Nikmati sensasi premium dari setiap gigitan dengan tiga pilihan rasa klasik yang diformulasikan untuk kesempurnaan.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Coklat -->
+                <div class="bg-choco-bg rounded-[2.5rem] p-8 text-center shadow-soft hover:-translate-y-2 transition-transform duration-300 fade-up">
+                    <div class="w-32 h-32 mx-auto bg-choco rounded-full mb-6 flex items-center justify-center shadow-md">
+                        <span class="text-5xl">🍫</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-choco mb-3">Coklat Premium</h3>
+                    <p class="text-gray-700 leading-relaxed">Rasa coklat pekat yang manis dan sedikit pahit (dark chocolate), sangat creamy dengan aroma kakao panggang yang khas.</p>
+                </div>
+                <!-- Stroberi -->
+                <div class="bg-straw-bg rounded-[2.5rem] p-8 text-center shadow-soft hover:-translate-y-2 transition-transform duration-300 fade-up delay-100">
+                    <div class="w-32 h-32 mx-auto bg-straw-soft rounded-full mb-6 flex items-center justify-center shadow-md">
+                        <span class="text-5xl">🍓</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-straw mb-3">Stroberi Segar</h3>
+                    <p class="text-gray-700 leading-relaxed">Kombinasi manis dan asam segar dari buah stroberi asli. Memberikan sensasi ringan dan aroma buah yang sangat wangi.</p>
+                </div>
+                <!-- Vanila -->
+                <div class="bg-vanila-bg rounded-[2.5rem] p-8 text-center shadow-soft hover:-translate-y-2 transition-transform duration-300 fade-up delay-200">
+                    <div class="w-32 h-32 mx-auto bg-vanila-soft rounded-full mb-6 flex items-center justify-center shadow-md">
+                        <span class="text-5xl">🍦</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-yellow-600 mb-3">Vanila Lembut</h3>
+                    <p class="text-gray-700 leading-relaxed">Kelembutan klasik dengan ekstrak biji vanila asli. Sangat creamy, manis yang pas, dan aroma yang menenangkan hati.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 & 5. Bahan & Proses Pembuatan -->
+    <section id="proses" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-20 fade-up">
+                <h2 class="text-4xl font-extrabold mb-4">Dibalik Kelezatan</h2>
+                <p class="text-gray-600 text-lg">Hanya menggunakan bahan-bahan pilihan dan proses pembuatan yang higienis untuk kualitas terbaik.</p>
+            </div>
+
+            <!-- Bahan Grid -->
+            <div class="grid md:grid-cols-2 gap-12 mb-24">
+                <div class="bg-cream p-8 rounded-[2rem] shadow-sm fade-up">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3"><span class="text-3xl">🍞</span> Bahan Roti</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-choco"></div>Tepung Terigu Protein Tinggi</div>
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-choco"></div>Gula Pasir Alami</div>
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-choco"></div>Telur Ayam Segar</div>
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-choco"></div>Susu Full Cream</div>
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-choco"></div>Ragi Premium</div>
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-choco"></div>Mentega Tawar (Butter)</div>
+                    </div>
+                </div>
+                <div class="bg-cream p-8 rounded-[2rem] shadow-sm fade-up delay-100">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3"><span class="text-3xl">🍨</span> Bahan Es Krim</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-straw"></div>Susu Sapi Segar</div>
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-straw"></div>Heavy Cream</div>
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-straw"></div>Gula Murni</div>
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-straw"></div>Coklat / Kakao</div>
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-straw"></div>Ekstrak Stroberi Asli</div>
+                        <div class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-straw"></div>Biji Vanila Murni</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Proses -->
+            <h3 class="text-3xl font-bold text-center mb-12 fade-up">Proses</h3>
+            <div class="space-y-8 max-w-4xl mx-auto relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-1 before:bg-cream-dark">
+                
+                <!-- Step 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-choco text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">1</div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-6 rounded-2xl shadow-soft">
+                        <h4 class="font-bold text-lg mb-1">Pembuatan</h4>
+                        <p class="text-gray-600 text-sm">Pencampuran bahan roti secara presisi untuk menghasilkan tekstur kalis dan lembut.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-choco text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">2</div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-6 rounded-2xl shadow-soft">
+                        <h4 class="font-bold text-lg mb-1">Fermentasi & Pemanggangan</h4>
+                        <p class="text-gray-600 text-sm">Adonan diistirahatkan agar mengembang sempurna, lalu dipanggang hingga kecoklatan.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-choco text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">3</div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-6 rounded-2xl shadow-soft">
+                        <h4 class="font-bold text-lg mb-1">Churning Es Krim</h4>
+                        <p class="text-gray-600 text-sm">Susu, krim, dan perisa diproses di mesin pembuat es krim untuk mencapai tekstur creamy.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-choco text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">4</div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-6 rounded-2xl shadow-soft">
+                        <h4 class="font-bold text-lg mb-1">Penggabungan & Penyajian</h4>
+                        <p class="text-gray-600 text-sm">Roti dibelah, diisi dengan scoop es krim pilihan, dan siap dinikmati segar.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Keunggulan -->
+    <section id="keunggulan" class="py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-center mb-16 fade-up">Keunggulan Roti Es Krim</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm text-center fade-up hover:shadow-soft-lg transition-shadow">
+                    <div class="text-4xl mb-4">🍞</div>
+                    <h4 class="font-bold text-lg mb-2">Roti Sangat Lembut</h4>
+                    <p class="text-gray-500 text-sm">Tekstur roti brioche yang empuk dan tidak keras saat terkena es.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm text-center fade-up delay-75 hover:shadow-soft-lg transition-shadow">
+                    <div class="text-4xl mb-4">🍦</div>
+                    <h4 class="font-bold text-lg mb-2">Es Krim Creamy</h4>
+                    <p class="text-gray-500 text-sm">Es krim padat, kaya rasa, dan tidak mudah mencair dengan cepat.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm text-center fade-up delay-150 hover:shadow-soft-lg transition-shadow">
+                    <div class="text-4xl mb-4">🍫</div>
+                    <h4 class="font-bold text-lg mb-2">Pilihan 3 Rasa</h4>
+                    <p class="text-gray-500 text-sm">Tersedia varian klasik favorit: Coklat, Stroberi, dan Vanila.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm text-center fade-up hover:shadow-soft-lg transition-shadow">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h4 class="font-bold text-lg mb-2">Tampilan Menarik</h4>
+                    <p class="text-gray-500 text-sm">Visual yang menggugah selera dan sangat cocok untuk difoto.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm text-center fade-up delay-75 hover:shadow-soft-lg transition-shadow">
+                    <div class="text-4xl mb-4">💡</div>
+                    <h4 class="font-bold text-lg mb-2">Produk Inovatif</h4>
+                    <p class="text-gray-500 text-sm">Inovasi dessert yang unik dan berbeda dari es krim biasa.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm text-center fade-up delay-150 hover:shadow-soft-lg transition-shadow">
+                    <div class="text-4xl mb-4">💯</div>
+                    <h4 class="font-bold text-lg mb-2">Bahan Berkualitas</h4>
+                    <p class="text-gray-500 text-sm">Hanya menggunakan bahan alami tanpa pengawet buatan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7 & 8. Visi Misi & Nilai Produk -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Visi & Nilai -->
+                <div class="space-y-8">
+                    <!-- Visi -->
+                    <div class="bg-choco text-white p-10 rounded-[2.5rem] shadow-soft-lg relative overflow-hidden fade-up">
+                        <div class="absolute -right-10 -top-10 text-9xl opacity-10">💡</div>
+                        <h3 class="text-3xl font-bold mb-4 relative z-10">Visi Kami</h3>
+                        <p class="text-cream leading-relaxed relative z-10 text-lg">
+                            Menjadi produk makanan inovatif yang menggabungkan kelembutan roti dengan kenikmatan es krim dalam berbagai pilihan rasa, serta mampu memberikan pengalaman menikmati makanan yang unik, lezat, dan menarik.
+                        </p>
+                    </div>
+
+                    <!-- Nilai Produk Grid -->
+                    <div class="grid grid-cols-2 gap-4 fade-up">
+                        <div class="bg-cream-dark p-6 rounded-3xl">
+                            <h4 class="font-bold text-choco mb-1">Rasa & Aroma</h4>
+                            <p class="text-sm text-gray-600">Perpaduan manis, gurih, dan harum khas pemanggangan.</p>
+                        </div>
+                        <div class="bg-cream-dark p-6 rounded-3xl">
+                            <h4 class="font-bold text-choco mb-1">Tekstur</h4>
+                            <p class="text-sm text-gray-600">Sensasi hangat-dingin dan renyah-lembut dalam satu gigitan.</p>
+                        </div>
+                        <div class="bg-cream-dark p-6 rounded-3xl">
+                            <h4 class="font-bold text-choco mb-1">Daya Tarik</h4>
+                            <p class="text-sm text-gray-600">Disukai berbagai kalangan usia sebagai dessert spesial.</p>
+                        </div>
+                        <div class="bg-cream-dark p-6 rounded-3xl">
+                            <h4 class="font-bold text-choco mb-1">Higienis</h4>
+                            <p class="text-sm text-gray-600">Standar kebersihan tinggi di seluruh proses produksi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Misi -->
+                <div class="fade-up">
+                    <h3 class="text-3xl font-bold mb-8">Misi Utama</h3>
+                    <div class="space-y-4">
+                        <div class="group bg-white border border-gray-100 p-6 rounded-3xl shadow-sm hover:shadow-soft hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-start gap-4">
+                                <span class="text-choco font-black text-xl">01</span>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Kualitas Produk</h4>
+                                    <p class="text-gray-500 text-sm">Menghasilkan Roti Es Krim dengan kualitas bahan baku yang baik dan rasa yang lezat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group bg-white border border-gray-100 p-6 rounded-3xl shadow-sm hover:shadow-soft hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-start gap-4">
+                                <span class="text-choco font-black text-xl">02</span>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Pilihan Rasa</h4>
+                                    <p class="text-gray-500 text-sm">Menyediakan tiga pilihan rasa otentik, yaitu coklat, stroberi, dan vanila.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group bg-white border border-gray-100 p-6 rounded-3xl shadow-sm hover:shadow-soft hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-start gap-4">
+                                <span class="text-choco font-black text-xl">03</span>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Inovasi Berkelanjutan</h4>
+                                    <p class="text-gray-500 text-sm">Mengembangkan inovasi produk makanan yang kreatif dan selalu menarik perhatian.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group bg-white border border-gray-100 p-6 rounded-3xl shadow-sm hover:shadow-soft hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-start gap-4">
+                                <span class="text-choco font-black text-xl">04</span>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Standar Kebersihan</h4>
+                                    <p class="text-gray-500 text-sm">Menjaga kualitas, kebersihan, dan keamanan penuh dalam proses pembuatan produk.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group bg-white border border-gray-100 p-6 rounded-3xl shadow-sm hover:shadow-soft hover:-translate-y-1 transition-all duration-300">
+                            <div class="flex items-start gap-4">
+                                <span class="text-choco font-black text-xl">05</span>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Pengalaman Pelanggan</h4>
+                                    <p class="text-gray-500 text-sm">Memberikan pengalaman menikmati dessert yang benar-benar berbeda dari produk lainnya.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Kesimpulan -->
+    <section class="py-24 bg-cream">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center fade-up">
+            <div class="mb-8 flex justify-center">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 55 C 15 20, 85 20, 85 55" fill="#D7CCC8"/>
+                    <circle cx="30" cy="55" r="16" fill="#795548"/>
+                    <circle cx="70" cy="55" r="16" fill="#FFF59D"/>
+                    <circle cx="50" cy="45" r="20" fill="#F8BBD0"/>
+                    <rect x="20" y="68" width="60" height="14" rx="7" fill="#D7CCC8"/>
+                </svg>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Kesimpulan</h2>
+            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                Roti Es Krim bukan sekadar makanan, melainkan sebuah mahakarya inovasi hidangan penutup yang merangkul kelembutan roti panggang segar dan kesegaran es krim premium. Hadir dalam 3 pilihan rasa abadi: <strong class="text-choco">Coklat</strong>, <strong class="text-straw">Stroberi</strong>, dan <strong class="text-yellow-600">Vanila</strong>, siap memberikan kebahagiaan dalam setiap gigitannya.
+            </p>
+        </div>
+    </section>
+
+    <!-- 10. Footer -->
+    <footer class="bg-white pt-16 pb-8 border-t border-cream-dark">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
+                <div class="flex items-center gap-3">
+                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 55 C 15 20, 85 20, 85 55" fill="#D7CCC8"/>
+                        <circle cx="30" cy="55" r="16" fill="#795548"/>
+                        <circle cx="70" cy="55" r="16" fill="#FFF59D"/>
+                        <circle cx="50" cy="45" r="20" fill="#F8BBD0"/>
+                        <rect x="20" y="68" width="60" height="14" rx="7" fill="#D7CCC8"/>
+                    </svg>
+                    <div>
+                        <h4 class="font-bold text-xl text-textDark">Roti Es Krim</h4>
+                        <p class="text-sm text-gray-500">Perpaduan Kelembutan & Kesegaran</p>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-6 text-sm font-semibold text-gray-500">
+                    <a href="#" class="hover:text-choco transition-colors">Beranda</a>
+                    <a href="#varian" class="hover:text-choco transition-colors">Varian</a>
+                    <a href="#proses" class="hover:text-choco transition-colors">Proses</a>
+                    <a href="#keunggulan" class="hover:text-choco transition-colors">Keunggulan</a>
+                </div>
+            </div>
+            
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2026 Di buat oleh Jeandelrey Produk Roti Es Krim.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Preloader & Scroll Animation -->
+    <script>
+        // Sembunyikan preloader setelah halaman selesai dimuat
+        window.addEventListener("load", () => {
+            const preloader = document.getElementById("preloader");
+            setTimeout(() => {
+                preloader.classList.add("hide");
+            }, 2300); // Durasi tampil preloader sekitar 2.3 detik
+        });
+
+        // Animasi Fade Up saat Scroll
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const elements = document.querySelectorAll('.fade-up');
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
